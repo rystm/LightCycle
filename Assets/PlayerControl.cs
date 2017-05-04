@@ -68,7 +68,29 @@ public class PlayerControl : MonoBehaviour {
         {
             myRigidBody.velocity = new Vector2(0f, Speed * -1);
         }
-	}
+
+        //Player ONE
+        //Go east
+        if (this.gameObject.name.Equals("Player_one") && Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+        {
+            myRigidBody.velocity = new Vector2(Speed, 0f);
+        }
+        //Go west
+        else if (this.gameObject.name.Equals("Player_one") && Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            myRigidBody.velocity = new Vector2(Speed * -1, 0f);
+        }
+        //Go north
+        else if (this.gameObject.name.Equals("Player_one") && Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+        {
+            myRigidBody.velocity = new Vector2(0f, Speed);
+        }
+        //Go south
+        else if (this.gameObject.name.Equals("Player_one") && Input.GetKey(KeyCode.DownArrow) && !Input.GetKey(KeyCode.UpArrow))
+        {
+            myRigidBody.velocity = new Vector2(0f, Speed * -1);
+        }
+    }
 
 	
 	
