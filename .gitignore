@@ -5,3 +5,6 @@ Light Cycle Arena.sln
 ProjectSettings
 .vs
 *.meta
+Assembly-CSharp.csproj
+LightCycle.sln
+LightCycle.userprefs

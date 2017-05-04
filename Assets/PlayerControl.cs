@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerControl : MonoBehaviour {
 
     /// <summary>
+	/// test
     /// Speed character at which moves
     /// </summary>
     public float Speed = 1f;
