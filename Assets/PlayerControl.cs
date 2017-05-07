@@ -119,11 +119,14 @@ public class PlayerControl : MonoBehaviour {
             Destroy(this.gameObject);
             SceneManager.LoadScene(CurrLevel);
         }
+
     }
 
   
     internal void OnTriggerEnter2D(Collider2D obj)
     {
+		Destroy(this.gameObject);
+		SceneManager.LoadScene(CurrLevel);
 
     }
 

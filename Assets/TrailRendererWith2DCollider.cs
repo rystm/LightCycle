@@ -26,7 +26,9 @@ public class TrailRendererWith2DCollider : MonoBehaviour
     public bool pausing = false;                     //determines if the trail is pausing, i.e. neither creating nor destroying vertices
 
     private Transform trans;                        //transform of the object this script is attached to                    
-    private Mesh mesh;
+	private Vector3 trailStart;
+	private Rigidbody2D rb;
+	private Mesh mesh;
     private new PolygonCollider2D collider;
 
     private LinkedList<Vector3> centerPositions;    //the previous positions of the object this script is attached to
@@ -86,10 +88,16 @@ public class TrailRendererWith2DCollider : MonoBehaviour
 
         //get the transform of the object this script is attatched to
         trans = base.transform;
+		rb = GetComponentInParent<Rigidbody2D> ();
+		trailStart = base.transform.position;
+
+		trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 5;
+		trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 5;
 
         //set the first center position as the current position
         centerPositions = new LinkedList<Vector3>();
-        centerPositions.AddFirst(trans.position);
+		centerPositions.AddFirst(trailStart);
+
 
         leftVertices = new LinkedList<Vertex>();
         rightVertices = new LinkedList<Vertex>();
@@ -99,6 +107,8 @@ public class TrailRendererWith2DCollider : MonoBehaviour
     {
         if (!pausing)
         {
+			trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 5;
+			trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 5;
             //set the mesh and adjust widths if vertices were added or removed
             if (TryAddVertices() | TryRemoveVertices())
             {
@@ -128,22 +138,22 @@ public class TrailRendererWith2DCollider : MonoBehaviour
         bool vertsAdded = false;
 
         //check if the current position is far enough away (> 'vertexDistanceMin') from the most recent position where two vertices were added
-        if ((centerPositions.First.Value - trans.position).sqrMagnitude > vertexDistanceMin * vertexDistanceMin)
+		if ((centerPositions.First.Value - trailStart).sqrMagnitude > vertexDistanceMin * vertexDistanceMin)
         {
             //calculate the normalized direction from the 1) most recent position of vertex creation to the 2) current position
-            Vector3 dirToCurrentPos = (trans.position - centerPositions.First.Value).normalized;
+			Vector3 dirToCurrentPos = (trailStart - centerPositions.First.Value).normalized;
 
             //calculate the positions of the left and right vertices --> they are perpendicular to 'dirToCurrentPos' and 'renderDirection'
             Vector3 cross = Vector3.Cross(renderDirection, dirToCurrentPos);
-            Vector3 leftPos = trans.position + (cross * -widthStart * 0.5f);
-            Vector3 rightPos = trans.position + (cross * widthStart * 0.5f);
+			Vector3 leftPos = trailStart + (cross * -widthStart * 0.5f);
+			Vector3 rightPos = trailStart + (cross * widthStart * 0.5f);
 
             //create two new vertices at the calculated positions
-            leftVertices.AddFirst(new Vertex(leftPos, trans.position, (leftPos - trans.position).normalized));
-            rightVertices.AddFirst(new Vertex(rightPos, trans.position, (rightPos - trans.position).normalized));
+			leftVertices.AddFirst(new Vertex(leftPos, trailStart, (leftPos - trailStart).normalized));
+			rightVertices.AddFirst(new Vertex(rightPos, trailStart, (rightPos - trailStart).normalized));
 
             //add the current position as the most recent center position
-            centerPositions.AddFirst(trans.position);
+			centerPositions.AddFirst(trailStart);
             vertsAdded = true;
         }
 
@@ -285,6 +295,17 @@ public class TrailRendererWith2DCollider : MonoBehaviour
         }
     }
 
+	internal void OnTriggerEnter2D(Collider2D obj)
+	{
+		//Debug.Log ("test");
+
+	}
+
+	internal void OnCollisionEnter2D(Collision2D obj)
+	{
+		Debug.Log (obj.gameObject.tag);
+	}
+
     //************
     //
     // Private Classes
@@ -312,5 +333,6 @@ public class TrailRendererWith2DCollider : MonoBehaviour
             this.derivedDirection = derivedDirection;
             creationTime = Time.time;
         }
+
     }
 }
