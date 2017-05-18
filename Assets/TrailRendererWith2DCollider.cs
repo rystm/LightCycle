@@ -91,8 +91,8 @@ public class TrailRendererWith2DCollider : MonoBehaviour
 		rb = GetComponentInParent<Rigidbody2D> ();
 		trailStart = base.transform.position;
 
-		trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 5;
-		trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 5;
+		trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 25;
+		trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 25;
 
         //set the first center position as the current position
         centerPositions = new LinkedList<Vector3>();
@@ -107,8 +107,8 @@ public class TrailRendererWith2DCollider : MonoBehaviour
     {
         if (!pausing)
         {
-			trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 5;
-			trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 5;
+			trailStart.x = base.transform.position.x - rb.velocity.normalized.x / 25;
+			trailStart.y = base.transform.position.y - rb.velocity.normalized.y / 25;
             //set the mesh and adjust widths if vertices were added or removed
             if (TryAddVertices() | TryRemoveVertices())
             {
