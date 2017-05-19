@@ -79,6 +79,8 @@ public class TrailRendererWith2DCollider : MonoBehaviour
         //create an object and mesh for the trail
         GameObject trail = new GameObject("Trail", new[] { typeof(MeshRenderer), typeof(MeshFilter), typeof(PolygonCollider2D) });
         mesh = trail.GetComponent<MeshFilter>().mesh = new Mesh();
+        //if (gameObject.name == "Player_one") trailMaterial.color = new Color(0, 0, 255);
+        //else trailMaterial.color = new Color(0, 255, 0);
         trail.GetComponent<Renderer>().material = trailMaterial;
 
         //get and set the polygon collider on this trail.
