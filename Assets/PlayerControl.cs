@@ -23,6 +23,16 @@ public class PlayerControl : MonoBehaviour
     /// </summary>
     public event System.Action SpawnPlayer = delegate { };
 
+    // <summary>
+    // The Player's score
+    // </summary>
+    private int score = 0;
+
+    // <summary>
+    // The Player's score display
+    // </summary>
+    private GUIText scoreDisp;
+
     //index of current level
     private int CurrLevel;
 
@@ -33,22 +43,20 @@ public class PlayerControl : MonoBehaviour
     private int SOUTH = 2;
     private int WEST = 3;
 
-    //coordinates for the edge of the map
-    public float leftBox;
-    public float rightBox;
-    public float topBox;
-    public float botBox;
+    // <summary>
+    // Current Scene
+    // </summary>
+    public Scene CurrentScene;
 
     void Start()
     {
+        CurrentScene = SceneManager.GetActiveScene();
         myRigidBody = GetComponent<Rigidbody2D>();
         SpawnPlayer();
         CurrLevel = SceneManager.GetActiveScene().buildIndex;
-        leftBox = GameObject.Find("West_Wall").transform.position.x;
-        rightBox = GameObject.Find("East_Wall").transform.position.x;
-        topBox = GameObject.Find("North_Wall").transform.position.y;
-        botBox = GameObject.Find("South_Wall").transform.position.y;
-        //transform.rotation = Quaternion.LookRotation(new Vector3(1, 0), new Vector3(0, 0, -1));
+        if (this.gameObject.name.Equals("Player_one")) scoreDisp = GameObject.Find("P1 Score").GetComponent<GUIText>();
+        else scoreDisp = GameObject.Find("P2 Score").GetComponent<GUIText>();
+        DisplayScore();
     }
 
     void Update()
@@ -153,8 +161,20 @@ public class PlayerControl : MonoBehaviour
         if (obj.gameObject.tag != "Area")
         {
             Destroy(this.gameObject);
+            if (CurrentScene.name.Equals("Command Posts")) this.UpdateScore(-3);
             SceneManager.LoadScene(CurrLevel);
         }
+    }
+
+    public void UpdateScore(int i)
+    {
+        score += i;
+        DisplayScore();
+    }
+
+    void DisplayScore()
+    {
+        scoreDisp.text = score.ToString();
     }
 
 
