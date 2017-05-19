@@ -150,8 +150,11 @@ public class PlayerControl : MonoBehaviour
 
     internal void OnTriggerEnter2D(Collider2D obj)
     {
-        Destroy(this.gameObject);
-        SceneManager.LoadScene(CurrLevel);
+        if (obj.gameObject.tag != "Area")
+        {
+            Destroy(this.gameObject);
+            SceneManager.LoadScene(CurrLevel);
+        }
     }
 
 
