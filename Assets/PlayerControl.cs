@@ -111,7 +111,7 @@ public class PlayerControl : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.M))
             {
-                SceneManager.LoadScene(SceneManager.GetSceneByName("Main Menu").name); //BROKEN *************************************
+                SceneManager.LoadScene(3); //BROKEN *************************************
             }
         }
         else {
