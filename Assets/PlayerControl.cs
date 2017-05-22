@@ -208,7 +208,7 @@ public class PlayerControl : MonoBehaviour
         {
             if (CurrentScene.name.Equals("Command Posts"))
             {
-                this.score--;
+                UpdateScore(-3);
             }
             else if (CurrentScene.name.Equals("Battle"))
             {
