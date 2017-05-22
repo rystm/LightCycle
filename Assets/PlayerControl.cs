@@ -29,6 +29,14 @@ public class PlayerControl : MonoBehaviour
     private int score = 0;
 
     // <summary>
+    // Whether or not the player is in the Hill, used for scoring
+    // </summary>
+    private bool inHill = false;
+
+    private int hillCounter = 0;
+
+
+    // <summary>
     // The Player's score display
     // </summary>
     private GUIText scoreDisp;
@@ -107,6 +115,17 @@ public class PlayerControl : MonoBehaviour
             }
         }
         else {
+            //Update score for King of the Hill
+            if (inHill)
+            {
+                hillCounter++;
+                if (hillCounter >= 25)
+                {
+                    UpdateScore(1);
+                    hillCounter = 0;
+                }
+            }
+
             if (Input.GetKey(KeyCode.M))
             {
                 SceneManager.LoadScene(0);
@@ -214,6 +233,10 @@ public class PlayerControl : MonoBehaviour
             {
                 this.score--;
             }
+            else if (CurrentScene.name.Equals("King of the Hill"))
+            {
+                UpdateScore(-5);
+            }
 
             if (GameObject.Find("Player_one").GetComponent<PlayerControl>().GetScore() > GameObject.Find("Player_two").GetComponent<PlayerControl>().GetScore())
             {
@@ -232,6 +255,17 @@ public class PlayerControl : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
+        else if (CurrentScene.name.Equals("King of the Hill"))
+        {
+            inHill = true;
+            hillCounter = 0;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        inHill = false;
+        hillCounter = 0;
     }
 
     public void UpdateScore(int i)
