@@ -17,7 +17,7 @@ public class PlayerControl : MonoBehaviour
     /// <summary>
     /// Called when the character finished level
     /// </summary>
-    //public event System.Action CompletedLevel = delegate { };
+
     /// <summary>
     /// Called when the player is spawned
     /// </summary>
@@ -50,8 +50,6 @@ public class PlayerControl : MonoBehaviour
     // The Player's score display
     // </summary>
     public GUIText instructions;
-
-    public GUIText status;
 
     //index of current level
     private int CurrLevel;
@@ -95,7 +93,6 @@ public class PlayerControl : MonoBehaviour
         instructions = GameObject.Find("Instructions").GetComponent<GUIText>();
         winner.text = "";
         instructions.text = "";
-        status = GameObject.Find("status").GetComponent<GUIText>();
     }
 
     void Update()
@@ -111,7 +108,7 @@ public class PlayerControl : MonoBehaviour
             }
             else if (Input.GetKey(KeyCode.M))
             {
-                SceneManager.LoadScene(3); //BROKEN *************************************
+                SceneManager.LoadScene(3);
             }
         }
         else {
@@ -125,13 +122,16 @@ public class PlayerControl : MonoBehaviour
                     hillCounter = 0;
                 }
             }
-
-            if (Input.GetKey(KeyCode.M))
+            if (Input.GetKey(KeyCode.R))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(CurrentScene.name);
+            }
+            else if (Input.GetKey(KeyCode.M))
+            {
+                SceneManager.LoadScene(3);
             }
             //Go east
-            if (this.gameObject.name.Equals("Player_two") && Input.GetKey(KeyCode.D) && dir != WEST)
+            else if (this.gameObject.name.Equals("Player_two") && Input.GetKey(KeyCode.D) && dir != WEST)
             {
                 myRigidBody.velocity = new Vector2(Speed, 0f);
                 dir = EAST;
@@ -190,36 +190,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
-
-
-
-    void OnGUI()
-    {
-
-        /*GUIStyle textstyle = new GUIStyle();
-		textstyle.fontSize = 40;
-		
-		Font myfont = (Font)Resources.Load("Fonts/BAUHS93", typeof(Font));
-		textstyle.font = myfont;
-		
-		string scoins = coinCounter.ToString();
-		string splatforms = (MaxPlatforms - NumberOfPlatforms).ToString();
-		GUI.Label(new Rect(0, 0, 500, 500), "My Coins: " + scoins, textstyle);
-		GUI.Label(new Rect(0, 50, 500, 500), "Remaining Platforms: " + splatforms, textstyle);*/
-    }
-
-
-    //****************************************** HERE*********************************************************************************************
-
-    /*internal void OnCollisionEnter2D(Collision2D obj)
-    {
-        if (obj.gameObject.tag == "Player" || obj.gameObject.tag == "Trail" || obj.gameObject.tag == "Wall")
-        {
-            Destroy(this.gameObject);
-            SceneManager.LoadScene(CurrLevel);
-        }
-    }*/
-
 
     internal void OnTriggerEnter2D(Collider2D obj)
     {
@@ -282,11 +252,5 @@ public class PlayerControl : MonoBehaviour
     void DisplayScore()
     {
         scoreDisp.text = score.ToString();
-    }
-
-
-    void LoadScene()
-    {
-        SceneManager.LoadScene(0);
     }
 }
