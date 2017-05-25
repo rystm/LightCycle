@@ -9,4 +9,9 @@ public class MenuButton : MonoBehaviour {
 	{
         SceneManager.LoadScene(level);
     }
+
+//	public void LoadLevel(string sceneName)
+//	{
+//		Application.LoadLevel (sceneName);
+//	}
 }
