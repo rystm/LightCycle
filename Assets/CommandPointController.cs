@@ -26,7 +26,7 @@ public class CommandPointController : MonoBehaviour {
             if (owner != 2)
             {
                 if (owner == 1) GameObject.Find("Player_one").GetComponent<PlayerControl>().UpdateScore(-1);
-                this.GetComponent<SpriteRenderer>().color = new Color(0, 255, 0, 0.3f);
+                this.GetComponent<SpriteRenderer>().color = new Color(10, 6, 0, 0.3f);
                 owner = 2;
                 obj.gameObject.GetComponent<PlayerControl>().UpdateScore(1);
             }
@@ -36,7 +36,7 @@ public class CommandPointController : MonoBehaviour {
             if (owner != 1)
             {
                 if (owner == 2) GameObject.Find("Player_two").GetComponent<PlayerControl>().UpdateScore(-1);
-                this.GetComponent<SpriteRenderer>().color = new Color(0, 0, 255, 0.3f);
+                this.GetComponent<SpriteRenderer>().color = new Color(0, 3, 8, 0.3f);
                 owner = 1;
                 obj.gameObject.GetComponent<PlayerControl>().UpdateScore(1);
             }

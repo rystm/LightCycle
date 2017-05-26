@@ -82,8 +82,8 @@ public class TrailRendererWith2DCollider : MonoBehaviour
         //if (gameObject.name == "Player_one") trailMaterial.color = new Color(0, 0, 255);
         //else trailMaterial.color = new Color(0, 255, 0);
         trail.GetComponent<Renderer>().material = trailMaterial;
-        if (this.gameObject.name.Equals("Player_one")) trail.GetComponent<Renderer>().material.color = new Color(0, 0, 3);
-        else trail.GetComponent<Renderer>().material.color = new Color(0, 3, 0);
+        if (this.gameObject.name.Equals("Player_one")) trail.GetComponent<Renderer>().material.color = new Color(0, 3, 8);
+        else trail.GetComponent<Renderer>().material.color = new Color(10, 6, 0);
 
         //get and set the polygon collider on this trail.
         collider = trail.GetComponent<PolygonCollider2D>();

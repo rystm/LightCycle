@@ -211,12 +211,12 @@ public class PlayerControl : MonoBehaviour
             if (GameObject.Find("Player_one").GetComponent<PlayerControl>().GetScore() > GameObject.Find("Player_two").GetComponent<PlayerControl>().GetScore())
             {
                 winner.text = "Player 1 Wins";
-                winner.color = new Color(0, 0, 255);
+                winner.color = new Color(0, 1, 255);
             }
             else if (GameObject.Find("Player_one").GetComponent<PlayerControl>().GetScore() < GameObject.Find("Player_two").GetComponent<PlayerControl>().GetScore())
             {
                 winner.text = "Player 2 Wins";
-                winner.color = new Color(0, 255, 0);
+                //winner.color = new Color(10, 6, 0); commented out because colors are weird. The default is the color of P2
             }
             else
             {
