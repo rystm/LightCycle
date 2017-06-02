@@ -1,0 +1,61 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 730M (ID=0x1290)
+    Vendor:   NVIDIA
+    VRAM:     2020 MB
+    Driver:   21.21.13.7654
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.083 seconds
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Ryan\Documents\!CLASSES\Game Design\Light Cycle Arena\Light Cycle Arena_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 48Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 4.396015 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.877150 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 286.
+Total: 0.550291 ms (FindLiveObjects: 0.077767 ms CreateObjectMapping: 0.085662 ms MarkObjects: 0.333964 ms  DeleteObjects: 0.050134 ms)
+
+The referenced script on this Behaviour (Game Object 'Music Player') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.328043 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 286.
+Total: 2.818171 ms (FindLiveObjects: 0.020132 ms CreateObjectMapping: 0.022895 ms MarkObjects: 0.165008 ms  DeleteObjects: 2.609739 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.544758 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 289.
+Total: 2.913702 ms (FindLiveObjects: 0.028027 ms CreateObjectMapping: 0.022895 ms MarkObjects: 0.162245 ms  DeleteObjects: 2.699349 ms)
+
+The referenced script on this Behaviour (Game Object 'Music Player') is missing!
+ 
+(Filename:  Line: 1743)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.097030 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 288.
+Total: 8.166735 ms (FindLiveObjects: 0.071451 ms CreateObjectMapping: 0.088030 ms MarkObjects: 0.665560 ms  DeleteObjects: 7.340114 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1898 -> priority: 1 
+  Thread -> id: ee4 -> priority: 1 
